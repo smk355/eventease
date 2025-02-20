@@ -1,0 +1,99 @@
+/* Additional styles for forms */
+.create-event-form, .rsvp-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Event details styles */
+.event-details {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.description {
+    white-space: pre-line;
+}
+
+/* Participants table styles */
+.participants-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.participants-list th,
+.participants-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.participants-list th {
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+/* Messages */
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 1px solid #4CAF50;
+}
+
+.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    border: 1px solid #f44336;
+}
+
+/* No content messages */
+.no-events,
+.no-participants {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+}

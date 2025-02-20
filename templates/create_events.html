@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventEase - Create Event</title>
+    <link rel="stylesheet" href="../static/events.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="./event.html" class="back-link">Back to Events</a>
+        </div>
+    </header>s
+    <main>
+        <div class="form-container">
+            <div class="form-box">
+                <h2>Create New Event</h2>
+                <form id="create-event-form" method="POST">
+                    <input type="text" id="title" name="title" placeholder="Event Title" required>
+                    <textarea id="description" name="description" placeholder="Event Description" required></textarea>
+                    <input type="date" id="date" name="date" required>
+                    <input type="text" id="location" name="location" placeholder="Event Location" required>
+                    <input type="text" id="organizer" name="organizer" placeholder="Event Organizer" required>
+                    <button type="submit" class="btn">Create Event</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
