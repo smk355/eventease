@@ -6,6 +6,23 @@
     <title>EventEase - Event Details</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='events.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .event-info {
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .message.success {
+            font-size: 1.1rem;
+            background-color: rgba(76, 175, 80, 0.5); /* Green background */
+            color: white;
+            padding: 0.7rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,6 +43,7 @@
                 <h1>{{ event.get('title', 'Event Details') }}</h1>
                 <div class="event-info">
                     <p><strong>Date:</strong> {{ event.get('date', 'TBA') }}</p>
+                    <p><strong>Time:</strong> {{ event.get('event_time', 'TBA') }}</p>
                     <p><strong>Location:</strong> {{ event.get('location', 'TBA') }}</p>
                     <p><strong>Category:</strong> {{ event.get('category', 'General').title() }}</p>
                     <p class="description"><strong>Description:</strong><br>{{ event.get('description', 'No description available.') }}</p>
@@ -42,14 +60,37 @@
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
+                        
+                        <div class="form-group">
+                            <label>Are you a student of VIT?</label>
+                            <div class="radio-group">
+                                <input type="radio" id="vit_yes" name="vit_student" value="yes" required>
+                                <label for="vit_yes">Yes</label>
+                                <input type="radio" id="vit_no" name="vit_student" value="no">
+                                <label for="vit_no">No</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" id="registration_field" style="display:none;">
+                            <label for="registration_number">Enter Registration Number</label>
+                            <input type="text" id="registration_number" name="registration_number">
+                        </div>
+                        
+                        <div class="form-group" id="college_field" style="display:none;">
+                            <label for="college_name">Enter College Name</label>
+                            <input type="text" id="college_name" name="college_name">
+                        </div>
+                        
                         <div class="form-group">
                             <label for="mobile">Mobile Number</label>
                             <input type="tel" id="mobile" name="mobile" required>
                         </div>
+                        
                         <button type="submit" class="btn">RSVP Now</button>
                     </form>
                 </div>
@@ -57,5 +98,8 @@
             </div>
         </div>
     </main>
+    
+    <!-- Reference external JavaScript file for RSVP field toggling -->
+    <script src="{{ url_for('static', filename='rsvp.js') }}"></script>
 </body>
 </html>

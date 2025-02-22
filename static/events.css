@@ -1,81 +1,88 @@
+/* events.css - Unified styling for all event-related pages */
+
+/* Base styles */
 body {
     font-family: 'Baskerville', serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(105deg, #040c30 0% ,#652aa0  100%);
     color: #fff;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .top-bar {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-    font-size: 28px;
+    color: white;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #fff;
     text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.logo:hover {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 nav ul {
+    display: flex;
+    gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.events-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.filter-options {
     display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-nav li {
-    margin-left: 20px;
-}
-
-.btn {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
+.filter-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
-    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-main {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px;
+.filter-btn.active {
+    background-color: #4CAF50;
 }
 
-.events-container {
-    max-width: 800px;
-    width: 100%;
+.events-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .event-card {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px;
     transition: all 0.3s ease;
+    text-align: left;
 }
 
 .event-card:hover {
@@ -83,50 +90,216 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.no-events {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+/* Create event page specific */
 .form-container {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 40px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
 }
 
 .form-box {
     text-align: center;
 }
 
-h1, h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
 form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 input, textarea {
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
-    font-size: 1em;
+    font-family: inherit;
 }
 
 input::placeholder, textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
+.btn {
+    display: inline-block;
+    background-color: #3e9a41;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #257822;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    background-color: #4CAF50;
+}
+
+.create-btn {
+    background-color: #4CAF50;
+}
+
+.view-btn {
+    margin-top: 0.5rem;
+}
 
 .back-link {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
 }
 
 .back-link:hover {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .events-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-options {
+        flex-wrap: wrap;
+    }
+}
+
+.event-category {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.academic {
+    background-color: #4285F4;
+}
+
+.sports {
+    background-color: #EA4335;
+}
+
+.cultural {
+    background-color: #FBBC05;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+select {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: inherit;
+}
+
+select option {
+    background-color: #764ba2;
+    color: white;
+}
+/* RSVP form specific styles */
+.rsvp-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.rsvp-question {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rsvp-options {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.rsvp-options label {
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.rsvp-options input {
+    margin-right: 5px;
+}
+
+.hidden-field {
+    display: none;
+}
+
+.show-field {
+    display: block;
+}
+.rsvp-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.rsvp-form .form-group input[type="text"],
+.rsvp-form .form-group input[type="email"],
+.rsvp-form .form-group input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: inherit;
+    margin-bottom: 0.5rem;
+}
+
+.rsvp-form .form-group .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.rsvp-form .form-group .radio-group input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 0.3rem;
+}
+
+.message.success {
+    font-size: 1.5rem;
+    background-color: rgba(45, 174, 49, 0.4); /* Green background */
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 1rem 0;
+    
 }
